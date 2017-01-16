@@ -1,0 +1,12 @@
+
+version: 0.1
+phases:
+  install:
+    commands:
+      - npm install time
+      - aws cloudformation package --template-file SamTemplate.yml --s3-bucket cf-templates-qu14yxia347w-us-west-2 
+                                   --output-template-file NewSamTemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - NewSamTemplate.yaml
